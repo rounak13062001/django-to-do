@@ -1,0 +1,25 @@
+End-to-end to-do app deployment project
+
+Create and activate virtual env in your system 
+
+sudo apt install python3-venv python3-full
+python3 -m venv myenv
+source myenv/bin/activate
+
+
+
+1) Pull the code and try to run it in your local
+2) Run the code in AWS EC2 instance
+3) Create a container using Docker
+	a) Create a docker image --> vi Dockerfile
+	b) List the line of commands in the docker image (eg: in this case:
+		FROM python:3.9
+		RUN pip install django==3.2
+		COPY . .
+		RUN python3 manage.py migrate
+		CMD ["python3","manage.py","runserver","0.0.0.0:8000"])
+	c) Build the image --> sudo docker build . -t to-do    (-t just gives it a tag)
+	d) Check and run Container
+		sudo docker ps --> to check the running containers
+		sudo docker run -d -p 8000:8000 <container_id>		(-p is to map host port 8000 to docker port 8000;  -d is to run the container in background)
+		

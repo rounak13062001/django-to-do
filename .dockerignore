@@ -1,0 +1,10 @@
+env/
+__pycache__/
+*.pyc
+db.sqlite3
+.git
+.gitignore
+Dockerfile
+README.md
+Deployment_guide.txt
+*.log
